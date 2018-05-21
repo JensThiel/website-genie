@@ -5,7 +5,22 @@ html(lang="en")
       meta(name="viewport", content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
       title Website Genie
       link(rel='stylesheet', href='/css/screen.css')
+      link(rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans')
   body
-    form(action="")
-      input(type="text" placeholder="website to predict" name="url")
-      input(type="submit" value="PREDICT")
+    div(class="wrapper")
+      form(action="" class="predictor-form")
+        img(src="/images/website-genie.png" id="genie-pic")
+        input(type="text" placeholder="website to predict" name="url" id="input-predict")
+        a(href="#" id="send-predict") PREDICT
+      div(class="predictor-loader")
+          p(class="loading") Looking into my crystal ball...
+          img(src="/images/jens-head.png" id="loading-head")
+      div(class="predictor-results")
+        p(class="predictor-url")
+        p(class="predictor-cms")
+        p(class="predictor-prob")
+    div(id="disclaimer")
+      a(class="close-btn" href="#") x
+      p DISCLAIMER: This predictor is just a test, currently only Drupal and Wordpress are implemented, so trying to predict any other website won't give any decent results.
+  script(src="/js/jquery.js")
+  script(src="/js/script.js")
