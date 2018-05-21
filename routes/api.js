@@ -16,9 +16,16 @@ router
   var url_string = sanitizer.sanitize(req.params.url);
 fetchML(url_string).then(data=>{
   console.log(data);
+  var probability=data.Results.output1.value.Values[0][data.Results.output1.value.Values[0].length-1];
+  if(probability>0.5){
+    probability = ((probability-0.5)/0.5)*100;
+  }
+  else {
+    probability = (1-(probability/0.5))*100;
+  }
   var formatted_data = {
     cms:data.Results.output1.value.Values[0][data.Results.output1.value.Values[0].length-2],
-    prob:(100-(200*data.Results.output1.value.Values[0][data.Results.output1.value.Values[0].length-1])).toFixed(2)
+    prob:probability.toFixed(2)
   }
   res.send(formatted_data);
 })
