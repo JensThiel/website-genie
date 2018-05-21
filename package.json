@@ -1,0 +1,27 @@
+{
+  "name": "wappalyzer-ML",
+  "version": "1.0.0",
+  "description": "",
+  "main": "keys.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JensThiel/website-genie.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JensThiel/website-genie/issues"
+  },
+  "homepage": "https://github.com/JensThiel/website-genie#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "node-fetch": "^2.1.2",
+    "path": "^0.12.7"
+  }
+}
