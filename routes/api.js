@@ -15,6 +15,7 @@ router
 .get('/guess-tech/:url',function(req,res){
   var url_string = sanitizer.sanitize(req.params.url);
 fetchML(url_string).then(data=>{
+  console.log(data);
   var formatted_data = {
     cms:data.Results.output1.value.Values[0][data.Results.output1.value.Values[0].length-2],
     prob:(100-(200*data.Results.output1.value.Values[0][data.Results.output1.value.Values[0].length-1])).toFixed(2)
