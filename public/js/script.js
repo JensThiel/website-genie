@@ -14,9 +14,9 @@ var predictWebsite = function(e){
   $.get('/api/guess-tech/'+input)
             .done(function(results){
               $('.predictor-loader').css('display','none');
-                  $('.predictor-url').text('I think https://wwww.'+input + ' is built in:')
+                  $('.predictor-url').text('I think https://www.'+input + ' is built in:')
                    $('.predictor-cms').text(results.cms);
-                   $('.predictor-prob').text('and im '+results.prob +'% sure about that.')
+                   $('.predictor-prob').text('and I\'m '+results.prob +'% sure about that.')
                 })    ;            
           
 }
