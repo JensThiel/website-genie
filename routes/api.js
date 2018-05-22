@@ -15,7 +15,7 @@ router
 .get('/guess-tech/:url',function(req,res){
   var url_string = sanitizer.sanitize(req.params.url);
 fetchML(url_string).then(data=>{
-  console.log(data);
+  console.log(url_string);
   var probability=data.Results.output1.value.Values[0][data.Results.output1.value.Values[0].length-1];
   if(probability>0.5){
     probability = ((probability-0.5)/0.5)*100;
@@ -27,6 +27,13 @@ fetchML(url_string).then(data=>{
     cms:data.Results.output1.value.Values[0][data.Results.output1.value.Values[0].length-2],
     prob:probability.toFixed(2)
   }
+  var logged_data = {
+    user_ip : req.connection.remoteAddress,
+    cms: formatted_data.cms,
+    prob: formatted_data.prob,
+    url: url_string
+  }
+  console.log(logged_data);
   res.send(formatted_data);
 })
 
